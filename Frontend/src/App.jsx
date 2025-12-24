@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from 'axios';
 
 const App = () => {
-  return (
-    <div>App</div>
-  )
-}
+  const [product, setproduct] = useState(null);
 
-export default App
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/products/").then((response) => {
+      setproduct(response.data.product);
+      console.log(response.data.product);
+    });
+  }, []);
+
+  return <></>;
+};
+
+export default App;
