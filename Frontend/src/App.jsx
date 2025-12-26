@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import './index.css';
+import PaymentButton from "./components/PaymentButton";
 
 const App = () => {
   const [product, setProduct] = useState(null);
@@ -51,9 +52,7 @@ const App = () => {
               <div className="price">
                 {formatPrice((price?.amount / 100) ?? 0, price?.currency)}
               </div>
-              <button className="btn" onClick={handleBuyNow}>
-                Buy Now
-              </button>
+              <PaymentButton/>
             </div>
           </div>
         </div>
